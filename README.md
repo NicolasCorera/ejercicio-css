@@ -29,9 +29,7 @@ Users should be able to:
 
 ### Screenshot
 
-![Screenshot of the NFT preview card component](./screenshot.jpg)
-
-> Replace `screenshot.jpg` with a real screenshot of your solution (desktop and mobile).
+![Screenshot of the NFT preview card component](/preview.jpg)
 
 ### Links
 
@@ -131,7 +129,6 @@ Things I want to keep improving in future projects:
 ## Author
 
 - GitHub - [@nicolascorera](https://github.com/nicolascorera)
-- Frontend Mentor - [@your-username](https://www.frontendmentor.io/profile/your-username)
 
 ## Acknowledgments
 
