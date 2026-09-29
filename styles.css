@@ -23,6 +23,7 @@ body {
   flex-direction: column;
   gap: 1.5rem;
   border-radius: 20px;
+  box-shadow: 0px 20px 30px 20px rgba(0, 0, 0, 0.3);
 }
 
 .card__image {
@@ -141,8 +142,18 @@ body {
   transition: color 0.2s ease-in-out;
 }
 
-.card__bottom a:hover{
-    color: #00fff7;
+.card__bottom a:hover {
+  color: #00fff7;
+}
+
+@media (max-width: 400px) {
+  .card__container {
+    margin: 1.5rem;
+  }
+
+  .card__description{
+    font-size: 14px;
+  }
 }
 
 .attribution {
