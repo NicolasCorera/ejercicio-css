@@ -1,3 +1,17 @@
+:root {
+  --bg-page: #0d192b;
+  --bg-card: #14253d;
+  --cyan: #00fff7;
+  --cyan-overlay: #00fff771;
+  --text-muted: #8bacda;
+  --divider: #8bacda41;
+  --white: #ffffff;
+  --link-attribution: #3e52a3;
+
+  --radius: 1.25rem;
+  --transition-fast: 0.2s ease-in-out;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,30 +20,49 @@
 
 body {
   font-family: "Outfit", sans-serif;
-  background-color: #0d192b;
+  background-color: var(--bg-page);
+  color: var(--white);
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  color: #ffffff;
+  padding: 1.5rem;
+}
+
+/* Attribution (declared before the card links to keep specificity ascending) */
+.attribution {
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.attribution a {
+  color: var(--link-attribution);
 }
 
 .card__container {
-  background-color: #14253d;
-  padding: 1.5rem;
-  max-width: 350px;
+  background-color: var(--bg-card);
+  padding: clamp(1rem, 6vw, 1.5rem);
+  max-width: 21.875rem;
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  border-radius: 20px;
-  box-shadow: 0px 20px 30px 20px rgba(0, 0, 0, 0.3);
+  border-radius: var(--radius);
+  box-shadow: 0 1.25rem 1.875rem 1.25rem rgba(0, 0, 0, 0.3);
 }
 
 .card__image {
   position: relative;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: var(--radius);
 }
 
 .card__image img {
@@ -44,8 +77,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #00fff771;
-  color: #fff;
+  background: var(--cyan-overlay);
   opacity: 0;
   transition: opacity 0.3s ease;
   cursor: pointer;
@@ -69,20 +101,21 @@ body {
 
 .card__title {
   font-weight: 500;
-  font-size: 19px;
+  font-size: 1.1875rem;
   cursor: pointer;
-  transition: color 0.2s ease-in-out;
+  transition: color var(--transition-fast);
   width: 100%;
   max-width: fit-content;
 }
 
 .card__title:hover {
-  color: #00fff7;
+  color: var(--cyan);
 }
 
 .card__description {
-  color: #8bacda;
+  color: var(--text-muted);
   font-weight: 300;
+  font-size: 0.875rem;
 }
 
 .card__tags {
@@ -100,70 +133,66 @@ body {
 }
 
 .tag__left span {
-  color: #00fff7;
+  color: var(--cyan);
   font-weight: 500;
 }
 
 .tag__right {
-  color: #8bacda;
+  color: var(--text-muted);
 }
 
 .tag__right span {
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 400;
 }
 
 .card__divisor {
   width: 100%;
-  height: 0.1px;
-  background-color: #8bacda41;
+  height: 1px;
+  background-color: var(--divider);
 }
 
 .card__bottom {
   display: flex;
   align-items: center;
-  justify-content: left;
+  justify-content: flex-start;
   gap: 0.8rem;
-  font-size: 14px;
-  font-weight: 200px;
-  color: #8bacda;
+  font-size: 0.875rem;
+  font-weight: 200;
+  color: var(--text-muted);
 }
 
 .card__bottom img {
   width: 15%;
   height: 15%;
-  border: 1px solid white;
+  border: 1px solid var(--white);
   border-radius: 50%;
 }
 
 .card__bottom a {
-  color: #ffffff;
+  color: var(--white);
   text-decoration: none;
-  transition: color 0.2s ease-in-out;
+  transition: color var(--transition-fast);
 }
 
 .card__bottom a:hover {
-  color: #00fff7;
+  color: var(--cyan);
 }
 
-@media (max-width: 400px) {
-  .card__container {
-    margin: 1.5rem;
+a:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (min-width: 25.0625rem) {
+  .card__description {
+    font-size: 1rem;
   }
+}
 
-  .card__description{
-    font-size: 14px;
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
   }
-}
-
-.attribution {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%);
-  font-size: 0.8rem;
-  text-align: center;
-}
-.attribution a {
-  color: #3e52a3;
 }
