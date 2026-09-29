@@ -1,105 +1,138 @@
-# Frontend Mentor - NFT preview card component
+# Frontend Mentor - NFT preview card component solution
 
-![Design preview for the NFT preview card component coding challenge](preview.jpg)
+This is my solution to the [NFT preview card component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/nft-preview-card-component-SbdUL_w0U). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Project structure](#project-structure)
+- [Getting started](#getting-started)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+## Overview
 
-**To do this challenge, you need a basic understanding of HTML and CSS.**
+### The challenge
 
-## The challenge
+Users should be able to:
 
-Your challenge is to build out this preview card component and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to:
-
-- View the optimal layout depending on their device's screen size
+- View the optimal layout for the component depending on their device's screen size
 - See hover states for interactive elements
 
-### Want some support on the challenge? 
+### Screenshot
 
-[Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+![Screenshot of the NFT preview card component](./screenshot.jpg)
 
-## Where to find everything
+> Replace `screenshot.jpg` with a real screenshot of your solution (desktop and mobile).
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+### Links
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+- Solution URL: [Add solution URL here](https://your-solution-url.com)
+- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
-If you would like the Figma design file to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+## My process
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+### Built with
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+- Semantic HTML5 markup
+- CSS custom styling
+- Flexbox
+- Mobile-first workflow
+- [BEM](https://getbem.com/)-inspired class naming (`block__element`)
+- [Google Fonts](https://fonts.google.com/) - Outfit
 
-## Using AI coding assistants
+### What I learned
 
-We've included two files to help you if you're using AI coding assistants (like Claude, GitHub Copilot, Cursor, etc.) while working on this challenge:
+This project helped me practice building a small, self-contained component and polishing its interactive states.
 
-- `AGENTS.md` - Contains detailed instructions for AI assistants on how to help you with this challenge. It's tailored to this challenge's difficulty level, so the AI will provide guidance appropriate to your learning stage—offering more support for beginner challenges and encouraging more independence on advanced ones.
-- `CLAUDE.md` - A pointer file that directs Claude-based tools to the AGENTS.md instructions.
+Some of the key takeaways:
 
-**How to use them:** You don't need to do anything! These files are automatically detected by most AI coding tools. The AI will read them and adjust its behavior to be a better learning partner—guiding you toward solutions rather than just giving you the answers.
+- **Semantic structure:** using an `<article>` for the card and a `<footer>` for the attribution instead of generic `<div>` elements.
+- **Image overlay on hover:** combining `position: relative` on the container with `position: absolute; inset: 0` on the overlay, and animating `opacity` for a smooth transition.
 
-**Note:** These files are designed to help you *learn*, not to do the work for you. The AI is instructed to ask questions, give hints, and explain concepts rather than writing complete solutions.
+```css
+.overlay__image {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #00fff771;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
 
-## Building your project
+.overlay__image:hover {
+  opacity: 1;
+}
+```
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+- **Consistent hover states:** applying the same cyan accent (`#00fff7`) with a short `transition` on the title and the creator link.
+- **Layout with Flexbox:** centering the card on the page and distributing the price and time-left tags using `justify-content: space-between`.
+- **Responsive tweaks:** using a `max-width` on the card with `width: 100%`, plus a small media query to add breathing room on very narrow screens.
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+### Continued development
 
-## Deploying your project
+Things I want to keep improving in future projects:
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
+- Making the layout more resilient on small screens by using `min-height: 100vh` instead of a fixed `height: 100vh` on the `body`.
+- Using relative image paths (`./images/...`) so the project works when opened locally or deployed to a subfolder.
+- Adding meaningful `alt` text for images that convey information and reviewing the color contrast of secondary text.
+- Adding `:focus-visible` styles so keyboard users get the same feedback as mouse users.
+- Cleaning up small CSS details (e.g. valid `font-weight` values such as `200`, not `200px`).
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+### Useful resources
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://www.frontendmentor.io/guides/hosting-your-solution).
+- [Frontend Mentor style guide for this challenge](https://www.frontendmentor.io/challenges/nft-preview-card-component-SbdUL_w0U) - Colors, fonts, and design assets.
+- [MDN - Using CSS transitions](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions/Using_CSS_transitions) - Helped me build smooth hover effects.
+- [CSS-Tricks - A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) - A great reference for alignment and spacing.
+- [BEM methodology](https://getbem.com/introduction/) - For keeping class names clear and consistent.
 
-## Create a custom `README.md`
+## Project structure
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+```
+.
+├── images/
+│   ├── favicon-32x32.png
+│   ├── icon-clock.svg
+│   ├── icon-ethereum.svg
+│   ├── icon-view.svg
+│   ├── image-avatar.png
+│   └── image-equilibrium.jpg
+├── index.html
+├── styles.css
+└── README.md
+```
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+## Getting started
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+1. Clone the repository:
 
-## Submitting your solution
+   ```bash
+   git clone https://github.com/nicolascorera/your-repo-name.git
+   ```
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://www.frontendmentor.io/guides/how-to-submit-solutions) for tips on how to do this.
+2. Open the project folder:
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+   ```bash
+   cd your-repo-name
+   ```
 
-## Sharing your solution
+3. Open `index.html` in your browser, or serve it with a local server such as the VS Code **Live Server** extension.
 
-There are multiple places you can share your solution:
+## Author
 
-1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community). 
-2. Share on [X (formerly Twitter)](https://x.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in your post. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on [LinkedIn](https://www.linkedin.com/company/frontend-mentor/).
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+- GitHub - [@nicolascorera](https://github.com/nicolascorera)
+- Frontend Mentor - [@your-username](https://www.frontendmentor.io/profile/your-username)
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
+## Acknowledgments
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
-
-## Got feedback for us?
-
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
-
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
-
-**Have fun building!** 🚀
+Thanks to [Frontend Mentor](https://www.frontendmentor.io) for providing the challenge and the design assets, and to the community for the feedback and inspiration.
