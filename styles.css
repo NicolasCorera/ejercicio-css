@@ -8,7 +8,7 @@
   --white: #ffffff;
   --link-attribution: #3e52a3;
 
-  --radius: 1.25rem;
+  --radius: clamp(1rem, 5vw, 1.25rem);
   --transition-fast: 0.2s ease-in-out;
 
   --shadow: 0 1.25rem 1.875rem 1.25rem rgba(0, 0, 0, 0.3);
@@ -46,9 +46,9 @@ main {
 
 /* Attribution (declared before the card links to keep specificity ascending) */
 .attribution {
-  font-size: 0.8rem;
+  font-size: clamp(0.75rem, 2.5vw, 0.8rem);
   text-align: center;
-  padding: 1rem;
+  padding: clamp(0.75rem, 3vw, 1rem);
 }
 
 .attribution a {
@@ -58,11 +58,10 @@ main {
 .card__container {
   background-color: var(--bg-card);
   padding: clamp(1rem, 6vw, 1.5rem);
-  max-width: 21.875rem;
-  width: 100%;
+  width: min(100%, 21.875rem);
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: clamp(1rem, 5vw, 1.5rem);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
 }
@@ -104,12 +103,12 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1rem;
+  gap: clamp(0.75rem, 4vw, 1rem);
 }
 
 .card__title {
   font-weight: 500;
-  font-size: 1.1875rem;
+  font-size: clamp(1.0625rem, 4.5vw, 1.1875rem);
   cursor: pointer;
   transition: color var(--transition-fast);
   width: 100%;
@@ -123,7 +122,7 @@ main {
 .card__description {
   color: var(--text-muted);
   font-weight: 300;
-  font-size: 0.875rem;
+  font-size: clamp(0.875rem, 3.5vw, 1rem);
 }
 
 .card__tags {
@@ -137,7 +136,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
+  gap: clamp(0.375rem, 2vw, 0.5rem);
 }
 
 .tag__left span {
@@ -150,7 +149,7 @@ main {
 }
 
 .tag__right span {
-  font-size: 0.9375rem;
+  font-size: clamp(0.875rem, 3.5vw, 0.9375rem);
   font-weight: 400;
 }
 
@@ -164,8 +163,8 @@ main {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 0.8rem;
-  font-size: 0.875rem;
+  gap: clamp(0.6rem, 3vw, 0.8rem);
+  font-size: clamp(0.8125rem, 3.5vw, 0.875rem);
   font-weight: 200;
   color: var(--text-muted);
 }
@@ -185,12 +184,6 @@ main {
 
 .card__bottom a:hover {
   color: var(--cyan);
-}
-
-@media (min-width: 25.0625rem) {
-  .card__description {
-    font-size: 1rem;
-  }
 }
 
 /* Accesibilidad: sin transiciones para quienes prefieren menos movimiento */
