@@ -10,6 +10,8 @@
 
   --radius: 1.25rem;
   --transition-fast: 0.2s ease-in-out;
+
+  --shadow: 0 1.25rem 1.875rem 1.25rem rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -56,7 +58,7 @@ main {
   flex-direction: column;
   gap: 1.5rem;
   border-radius: var(--radius);
-  box-shadow: 0 1.25rem 1.875rem 1.25rem rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow);
 }
 
 .card__image {
@@ -148,7 +150,7 @@ main {
 
 .card__divisor {
   width: 100%;
-  height: 1px;
+  height: 0.1em;
   background-color: var(--divider);
 }
 
@@ -180,19 +182,13 @@ main {
 }
 
 a:focus-visible {
-  outline: 2px solid var(--cyan);
   outline-offset: 2px;
+  outline: 2px solid var(--cyan);
   border-radius: 2px;
 }
 
 @media (min-width: 25.0625rem) {
   .card__description {
     font-size: 1rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    transition: none !important;
   }
 }
