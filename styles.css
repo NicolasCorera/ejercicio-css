@@ -30,6 +30,12 @@ body {
   flex-direction: column;
 }
 
+a:focus-visible {
+  outline-offset: 2px;
+  outline: 2px solid var(--cyan);
+  border-radius: 2px;
+}
+
 main {
   flex: 1;
   display: flex;
@@ -179,12 +185,6 @@ main {
 
 .card__bottom a:hover {
   color: var(--cyan);
-}
-
-a:focus-visible {
-  outline-offset: 2px;
-  outline: 2px solid var(--cyan);
-  border-radius: 2px;
 }
 
 @media (min-width: 25.0625rem) {
