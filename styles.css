@@ -41,7 +41,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: clamp(1rem, 4vw, 1.5rem);
 }
 
 /* Attribution (declared before the card links to keep specificity ascending) */
@@ -190,5 +190,14 @@ main {
 @media (min-width: 25.0625rem) {
   .card__description {
     font-size: 1rem;
+  }
+}
+
+/* Accesibilidad: sin transiciones para quienes prefieren menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  .overlay__image,
+  .card__title,
+  .card__bottom a {
+    transition: none;
   }
 }
